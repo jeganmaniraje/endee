@@ -1,0 +1,21 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import pickle
+
+# Sample dataset
+X = np.array([
+    [1000, 2, 2],
+    [1500, 3, 2],
+    [2000, 4, 3],
+    [2500, 4, 4],
+    [3000, 5, 4]
+])
+
+y = np.array([3000000, 4500000, 6000000, 7500000, 9000000])
+
+model = LinearRegression()
+model.fit(X, y)
+
+pickle.dump(model, open('model.pkl', 'wb'))
+
+print("Model trained and saved!")
